@@ -3,7 +3,6 @@ from setuptools import setup
 APP = ['main.py']
 OPTIONS = {
     'argv_emulation': True,
-    'iconfile': 'icon.icns',
     'plist': {
         'CFBundleName': 'Internet Back Again',
         'CFBundleDisplayName': 'Internet Back Again',
