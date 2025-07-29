@@ -15,14 +15,12 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: |
-          cd app
           pip install py2app
       - name: Build .app
         run: |
-          cd app
           python setup.py py2app
       - name: Upload .app
         uses: actions/upload-artifact@v4
         with:
           name: InternetBackAgain
-          path: app/dist/
+          path: dist/
