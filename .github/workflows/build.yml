@@ -1,0 +1,28 @@
+name: Build macOS App
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          cd app
+          pip install py2app
+      - name: Build .app
+        run: |
+          cd app
+          python setup.py py2app
+      - name: Upload .app
+        uses: actions/upload-artifact@v3
+        with:
+          name: InternetBackAgain
+          path: app/dist/
