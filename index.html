@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Internet Back Again – Settings</title>
+</head>
+<body>
+  <h1>Select What Opens When Internet Returns</h1>
+  <form onsubmit="saveSettings(); return false;">
+    <input type="text" id="action" placeholder="Enter URL or app path" style="width:300px;">
+    <button type="submit">Save</button>
+  </form>
+  <p id="status"></p>
+  <script>
+    function saveSettings() {
+      const action = document.getElementById("action").value;
+      fetch("http://localhost:5000/save", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({action})
+      }).then(() => {
+        document.getElementById("status").innerText = "Saved!";
+      });
+    }
+  </script>
+</body>
+</html>
