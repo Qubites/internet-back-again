@@ -25,7 +25,7 @@ def is_connected(host="8.8.8.8", port=53, timeout=2):
 def notify(title, message):
     system = platform.system()
     if system == "Darwin":
-        subprocess.call(["osascript", "-e", f'display notification "{message}" with title "{title}""])
+        subprocess.call([osascript, "-e", f'display notification "{message}" with title "{title}""])
 
 def play_sound():
     system = platform.system()
